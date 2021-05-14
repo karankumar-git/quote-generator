@@ -23,7 +23,12 @@ async function getquote(){
         apiquote= await response.json();
         var array = newquote();
         document.getElementById("quoteSection").innerText = array.text;
-        document.getElementsByTagName('h4')[0].innerText = "- " + array.author;
+        if(array.author==null){
+            document.getElementsByTagName('h4')[0].innerText = " ";
+        }
+        else{
+            document.getElementsByTagName('h4')[0].innerText = "- " + array.author;
+        }
         
     }
     catch(error){
